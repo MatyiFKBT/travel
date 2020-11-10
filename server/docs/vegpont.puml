@@ -1,0 +1,20 @@
+@startuml vegpont
+!pragma useVerticalIf on
+start
+if (Bejelentkezett felhasználó?) then (nem)
+  :Error 401;
+  stop
+elseif (Létező bejegyzés?) then (nem)
+  :Error 404;
+  stop
+elseif (A felhasználó bejegyzése?) then (nem)
+  :Error 403;
+  stop
+elseif (Érvényes komment?) then (nem)
+  :Error 400;
+  stop
+else
+  :HTTP 200\nSikeres kommentelés;
+endif
+stop
+@enduml

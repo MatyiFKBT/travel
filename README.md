@@ -3,18 +3,21 @@
 ## Feladat funkcionális követelményei
 ### Projektötlet
 
-A projekt célja a családi költségek nyomon követése, naplózása. A felhasználó feljegyezheti különféle utazásait. Az alkalmazáson belül lehetőség van az utazások listázására, naptárban/térképen való megtekintésére, utazások felvételére, módosítására törlésre. Az alkalmazást több felhasználó is használhatja egymástól függetlenül. Az alkalmazásban lehetőség van egy utazást publikusként is rögzíteni, ekkor az összes felhasználó láthatja azt.
+A projekt célja a felasználó utazásainak naplózása. A felhasználó feljegyezheti különféle utazásait. Az alkalmazáson belül lehetőség van az utazások listázására, naptárban/térképen való megtekintésére, utazások felvételére, módosítására törlésre. Az alkalmazást több felhasználó is használhatja egymástól függetlenül. Az alkalmazásban lehetőség van egy utazást publikusként is rögzíteni, ekkor az összes felhasználó láthatja azt.
 
 ### Felhasznált technológiák
 
 #### Backend
+
 - Node.js
 - Express.js
-- Typescript 
+- Typescript
 - SQLite / Postgres
 - REST api  (Frotend - Backend kommunikáció)
+- Jest (tesztelés)
 
 #### Frontend
+
 - Angular
 
 #### Verziókövető
@@ -33,7 +36,7 @@ A projekt célja a családi költségek nyomon követése, naplózása. A felhas
   
 ### Adatbázis felépítése
 
-- **Felhasználók tábla**  (név, jelszó, e-mail cím, egyedi azonosító )
+- **Felhasználók tábla**  (felhasználónév, jelszó, e-mail cím, egyedi azonosító )
 - **Utazások tábla** (id, hely(lat,lon), kezd_dátum, vég_dátum, leírás)
 - **Kommentek tábla** (utazás_id, felhasználó_id, komment)
 - **Címkék tábla** (címke_id, szöveg)

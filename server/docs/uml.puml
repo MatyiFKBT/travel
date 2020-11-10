@@ -1,0 +1,45 @@
+@startuml
+title Táblák kapcsolati diagramja
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "User" as u {
+  *uuid : string <<generated>>
+  --
+  *username: text
+  *password: text
+  *email: text
+}
+
+entity "Entry" as te {
+  *id : number <<generated>>
+  --
+  *user_id : number <<FK>>
+  *start_date: date
+  *end_date: date
+  *latlon: text
+  *desc: text
+}
+
+entity "Tag" as t {
+  *id : number <<generated>>
+  --
+  *text: text
+}
+
+entity "Comment" as c {
+  *id : number <<generated>>
+  --
+  *text: text
+  *author_id: number <<FK>>
+  *_id: number <<FK>>
+}
+
+u ||..o{ te
+u ||..o{ c
+te ||..o{ c
+te }o..o{ t
+@enduml

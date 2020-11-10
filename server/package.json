@@ -1,0 +1,54 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/src",
+    "prestart": "rimraf dist && yarn build",
+    "pretest": "rimraf dist && cross-env NODE_ENV=test yarn db",
+    "dev": "nodemon dist/src",
+    "build": "tsc",
+    "test": "cross-env NODE_ENV=test jest --coverage --detectOpenHandles",
+    "db": "mikro-orm schema:drop -r && mikro-orm schema:create -r && cross-env NODE_ENV=test mikro-orm database:import test/seed.sql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mikro-orm/cli": "^4.2.3",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.15",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.14.6",
+    "@types/passport": "^1.0.4",
+    "@types/passport-jwt": "^3.0.3",
+    "@types/supertest": "^2.0.10",
+    "cross-env": "^7.0.2",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.0.1",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@mikro-orm/core": "^4.2.3",
+    "@mikro-orm/sqlite": "^4.2.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "uuidv4": "^6.2.5"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./mikro-orm.config.ts"
+    ]
+  }
+}
