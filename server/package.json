@@ -10,7 +10,8 @@
     "dev": "nodemon dist/src",
     "build": "tsc",
     "test": "cross-env NODE_ENV=test jest --coverage --detectOpenHandles",
-    "db": "mikro-orm schema:drop -r && mikro-orm schema:create -r && cross-env NODE_ENV=test mikro-orm database:import test/seed.sql"
+    "db": "mikro-orm schema:drop -r && mikro-orm schema:create -r && cross-env NODE_ENV=test mikro-orm database:import test/seed.sql",
+    "deploy:heroku": "heroku container:push web -a backend-travel && heroku container:release web -a backend-travel"
   },
   "keywords": [],
   "author": "",
@@ -31,8 +32,7 @@
     "rimraf": "^3.0.2",
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.5"
+    "ts-node": "^9.0.0"
   },
   "dependencies": {
     "@mikro-orm/core": "^4.2.3",
@@ -43,7 +43,8 @@
     "jsonwebtoken": "^8.5.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "uuidv4": "^6.2.5"
+    "uuidv4": "^6.2.5",
+    "typescript": "^4.0.5"
   },
   "mikro-orm": {
     "useTsNode": true,
