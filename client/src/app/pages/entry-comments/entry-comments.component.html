@@ -1,0 +1,21 @@
+<ng-container *ngIf="!!comments">
+    <div class="comments">
+        <div class="comment-wrapper" *ngFor="let comment of comments">
+            <div class="comment">
+                {{ comment.text }}
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="comments.length === 0">No comment yet. Start conversation!</ng-container>
+
+<form [formGroup]="form" (submit)="submit()">
+    <mat-form-field>
+        <mat-label>Text</mat-label>
+        <textarea required matInput name="text" formControlName="text"></textarea>
+        <mat-error *ngIf="form.get('text').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button color="primary">Send</button>
+    </div>
+</form>

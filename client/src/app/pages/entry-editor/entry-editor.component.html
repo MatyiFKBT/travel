@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{ editing ? "Edit" : "Create" }} travel entry</h2>
+
+<form [formGroup]="form" (submit)="submit()">
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input required matInput type="text" name="desc" formControlName="desc" />
+        <mat-error *ngIf="form.get('desc').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Lat,Lon</mat-label>
+        <input required matInput name="latlon" formControlName="latlon" />
+        <mat-error *ngIf="form.get('latlon').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Start date</mat-label>
+        <input required matInput type="text" name="start_date" formControlName="start_date" [matDatepicker]="startPicker" />
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+        <mat-error *ngIf="form.get('start_date').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>End date</mat-label>
+        <input required matInput type="text" name="end_date" formControlName="end_date" [matDatepicker]="endPicker" />
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+        <mat-error *ngIf="form.get('end_date').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions class="buttons">
+        <button mat-raised-button color="primary">{{ editing ? "Update" : "Create" }}</button>
+        <button type="button" mat-raised-button color="secondary" mat-dialog-close>Close</button>
+    </div>
+</form>

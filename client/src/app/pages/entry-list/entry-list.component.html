@@ -1,0 +1,9 @@
+<ng-container *ngIf="!entries"> Loading... </ng-container>
+<ng-container *ngIf="!!entries">
+    <ng-container *ngIf="entries.length === 0"> No available travel! </ng-container>
+    <ng-container *ngIf="entries.length > 0">
+        <mat-nav-list>
+            <a mat-list-item *ngFor="let entry of entries" (click)="selectEntry.emit(entry)"> {{ entry.desc }} </a>
+        </mat-nav-list>
+    </ng-container>
+</ng-container>

@@ -1,0 +1,24 @@
+<div *ngIf="successRegister" class="successRegister">
+    Successful registration!
+</div>
+
+<form [formGroup]="form" (submit)="submit()">
+    <mat-form-field class="formField">
+        <mat-label>Username</mat-label>
+        <input required matInput type="text" name="username" formControlName="username" autocomplete="false" />
+        <mat-error *ngIf="form.get('username').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field class="formField">
+        <mat-label>Email</mat-label>
+        <input required matInput type="text" name="email" formControlName="email" autocomplete="false" />
+        <mat-error *ngIf="form.get('email').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field class="formField">
+        <mat-label>Password</mat-label>
+        <input required matInput type="password" name="password" formControlName="password" autocomplete="false" />
+        <mat-error *ngIf="form.get('password').invalid">This field is required.</mat-error>
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button color="primary">Register</button>
+    </div>
+</form>

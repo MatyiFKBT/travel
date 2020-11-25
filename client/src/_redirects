@@ -1,0 +1,2 @@
+/api/*     https://backend-travel.herokuapp.com/:splat  200
+/*         /                                            200

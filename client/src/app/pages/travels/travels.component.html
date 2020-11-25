@@ -1,0 +1,25 @@
+<div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+    <mat-card fxFlex="300px" style="min-height: 300px; padding: 10px; background-color: white">
+        <mat-card-header>
+            <mat-card-title style="margin: 6px 0px">Travels</mat-card-title>
+            <button mat-raised-button color="primary" (click)="newEntry()">New</button>
+        </mat-card-header>
+        <mat-card-content>
+            <app-entry-list [entries]="entries" (selectEntry)="selectEntry($event)"></app-entry-list>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex *ngIf="loadSelectedEntry">
+        <mat-card-header>
+            <mat-card-title>Loading...</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+    <mat-card fxFlex *ngIf="!!selectedEntry">
+        <mat-card-header>
+            <mat-card-title>{{ selectedEntry.desc }} details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <app-entry-details [selectedEntry]="selectedEntry"></app-entry-details>
+        </mat-card-content>
+    </mat-card>
+</div>

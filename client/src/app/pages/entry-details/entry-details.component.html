@@ -1,0 +1,26 @@
+<div>Interval: {{ selectedEntry.start_date }} - {{ selectedEntry.end_date }}</div>
+<div><h2>Tags</h2></div>
+<mat-form-field>
+    <mat-chip-list #chipList>
+        <mat-chip *ngFor="let tag of selectedEntry.tags" (removed)="toggleTag(tag)">
+            {{ tag.text }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input
+            placeholder="Select or type and hit ENTER to create new..."
+            #fruitInput
+            name="tags"
+            [formControl]="chipCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            (matChipInputTokenEnd)="add($event)"
+        />
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let tag of tags" [value]="tag">
+            {{ tag.text }}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+<div><h2>Comments</h2></div>
+<app-entry-comments [entryId]="selectedEntry.id" [comments]="selectedEntry.comments" (newCommentAdded)="updateEntry()"></app-entry-comments>
