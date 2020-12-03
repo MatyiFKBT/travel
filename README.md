@@ -1,5 +1,10 @@
 # Utazási naplókezelő alkalmazás
 
+## Linkek
+
+- https://backend-travel.herokuapp.com
+- https://travel2020.netlify.app
+
 ## Feladat funkcionális követelményei
 
 ### Projektötlet
@@ -17,7 +22,7 @@ A projekt célja a felasználó utazásainak naplózása. A felhasználó feljeg
 - REST api (Frotend - Backend kommunikáció)
 - Jest (tesztelés)
 
-#### Frontend
+#### [Frontend](https://github.com/MatyiFKBT/travel/wiki/frontend)
 
 - Angular
 
