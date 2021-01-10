@@ -27,10 +27,10 @@ export class RegisterComponent implements OnInit {
         }
         await this.authService.register(this.form.value);
         this.successRegister = true;
-        this.form.reset({
+        /*this.form.reset({
             username: '',
             email: '',
             password: '',
-        });
+        });*/
     }
 }
