@@ -30,9 +30,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EntryListComponent } from './pages/entry-list/entry-list.component';
 import { EntryDetailsComponent } from './pages/entry-details/entry-details.component';
 import { EntryCommentsComponent } from './pages/entry-comments/entry-comments.component';
+import { TagsComponent } from './pages/tags/tags.component';
 
 @NgModule({
-    declarations: [AppComponent, MenuComponent, AuthComponent, LoginComponent, RegisterComponent, TravelsComponent, EntryEditorComponent, EntryListComponent, EntryDetailsComponent, EntryCommentsComponent],
+    declarations: [AppComponent, MenuComponent, AuthComponent, LoginComponent, RegisterComponent, TravelsComponent, EntryEditorComponent, EntryListComponent, EntryDetailsComponent, EntryCommentsComponent, TagsComponent],
     imports: [
         AppRoutingModule,
         BrowserAnimationsModule,

@@ -30,7 +30,13 @@ export class EntryCommentsComponent implements OnInit {
             return;
         }
         await this.commentService.create(this.entryId, this.form.value);
+        this.form.reset({text: ''});
         this.newCommentAdded.emit();
 
+    }
+
+    async removeComment(id: number): Promise<void> {
+        await this.commentService.delete(id);
+        this.newCommentAdded.emit();
     }
 }

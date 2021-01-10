@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tag } from '../dto/tag.dto';
 import { TravelEntry } from '../dto/travelentry.dto';
+import { UserService } from './user.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class EntryService {
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private userService: UserService) {}
 
     async getEntries(): Promise<TravelEntry[]> {
         const entries = await this.http.get<TravelEntry[]>('/api/entries').toPromise();
@@ -20,7 +21,12 @@ export class EntryService {
     }
 
     async get(id): Promise<TravelEntry> {
-        return await this.http.get<TravelEntry>(`/api/entries/${id}`).toPromise();
+        const entry = await this.http.get<TravelEntry>(`/api/entries/${id}`).toPromise();
+        const loggedInUserId = this.userService.userId;
+        entry.comments.map(c => {
+            c.own = c.author === loggedInUserId;
+        })
+        return entry;
     }
 
     async toggleTag(id: number, tag: Tag): Promise<TravelEntry> {

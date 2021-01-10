@@ -1,5 +1,4 @@
 .comment {
-    background-color: #3f51b5;
     color: white;
     border-radius: 15px;
     padding: 5px 15px;
@@ -10,4 +9,12 @@
 
 .comment-wrapper {
     margin-bottom: 10px;
+}
+
+.own-comment {
+    background-color: #3f51b5;
+}
+.foreign-comment {
+    background-color: #616161;
+    float: right;
 }

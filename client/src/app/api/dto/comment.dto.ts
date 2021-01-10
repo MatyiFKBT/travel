@@ -3,6 +3,7 @@ import { TravelEntry } from './travelentry.dto';
 
 export interface Comment extends Base {
     text: string;
-    author: string;
+    author: number;
     entry: TravelEntry;
+    own?: boolean;
 }

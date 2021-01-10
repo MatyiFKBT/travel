@@ -1,0 +1,28 @@
+<div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+    <mat-card fxFlex="300px" style="min-height: 300px; padding: 10px; background-color: white">
+        <mat-card-header>
+            <mat-card-title style="margin: 6px 0px">Tags</mat-card-title>
+            <!-- <button mat-raised-button color="primary" (click)="newEntry()">New</button> -->
+        </mat-card-header>
+        <mat-card-content>
+            <ng-container *ngIf="!tags"> Loading... </ng-container>
+            <ng-container *ngIf="!!tags">
+                <ng-container *ngIf="tags.length === 0"> No available tags! </ng-container>
+                <ng-container *ngIf="tags.length > 0">
+                    <mat-nav-list>
+                        <div  mat-list-item *ngFor="let tag of tags">
+                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                <div>{{ tag.text }}</div>
+                                <div>
+                                    <button mat-icon-button (click)="deleteTag(tag.id)">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-nav-list>
+                </ng-container>
+            </ng-container>
+        </mat-card-content>
+    </mat-card>
+</div>

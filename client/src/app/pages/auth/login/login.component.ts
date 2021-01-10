@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
         username: ['', Validators.required],
         password: ['', Validators.required],
     });
+    loginError = false;
 
     constructor(private fb: FormBuilder, private authService: UserService, private router: Router) {}
 
@@ -22,7 +23,12 @@ export class LoginComponent implements OnInit {
         if (!this.form.valid) {
             return;
         }
-        await this.authService.login(this.form.value);
-        this.router.navigate(['/']);
+        try {
+            this.loginError = false;
+            await this.authService.login(this.form.value);
+            this.router.navigate(['/']);
+        } catch (e) {
+            this.loginError = true;
+        }
     }
 }

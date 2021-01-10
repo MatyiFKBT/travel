@@ -17,26 +17,26 @@ export interface LoginRequest {
     providedIn: 'root',
 })
 export class UserService {
-    private currentToken: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTYwNjE2MzI2MX0.1oBTI64rrb9vI3Znzu6ucZWkBxNtJDYKnVihfljrIko';
+    private static AUTH_TOKEN_KEY = 'travel-auth-token';
+
     get token(): string {
-        return this.currentToken;
+        return localStorage.getItem(UserService.AUTH_TOKEN_KEY);
     }
     private setToken(token: string): void {
-        this.currentToken = token;
+        localStorage.setItem(UserService.AUTH_TOKEN_KEY, token);
     }
-
-    // private currentToken: boolean = true;
-    // get token(): boolean {
-    //     return this.currentToken;
-    // }
-
-    // private setToken(token: boolean): void {
-    //     this.currentToken = token;
-    // }
-
 
     get isLoggedIn(): boolean {
         return !!this.token;
+    }
+
+    get userId(): number {
+        // console.log(this.token);
+        const tokenDataPart = this.token.split('.')[1];
+        // console.log(tokenDataPart);
+        const dataString = atob(tokenDataPart);
+        // console.log(dataString);
+        return JSON.parse(dataString).sub;
     }
 
     constructor(private httpClient: HttpClient, private router: Router) {}

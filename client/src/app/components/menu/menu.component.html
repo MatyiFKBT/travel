@@ -1,5 +1,6 @@
 <mat-nav-list *ngIf="isLoggedIn()">
     <a mat-list-item routerLink="travels">Travels</a>
+    <a mat-list-item routerLink="tags">Tags</a>
     <a mat-list-item (click)="logout()">Logout</a>
 </mat-nav-list>
 <mat-nav-list *ngIf="!isLoggedIn()">

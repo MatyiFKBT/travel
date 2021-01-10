@@ -1,4 +1,5 @@
 import { Base } from './base.dto';
+import { Comment } from './comment.dto';
 import { Tag } from './tag.dto';
 import { User } from './user.dto';
 

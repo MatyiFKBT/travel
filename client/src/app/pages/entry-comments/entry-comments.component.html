@@ -1,8 +1,15 @@
 <ng-container *ngIf="!!comments">
     <div class="comments">
         <div class="comment-wrapper" *ngFor="let comment of comments">
-            <div class="comment">
-                {{ comment.text }}
+            <div class="comment" [ngClass]="{ 'own-comment': comment.own, 'foreign-comment': !comment.own }">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>{{ comment.text }}</div>
+                    <div class="delete-comment-button">
+                        <button mat-icon-button *ngIf="comment.own" (click)="removeComment(comment.id)">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
