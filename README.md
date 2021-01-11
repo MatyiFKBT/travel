@@ -9,7 +9,7 @@
 
 ### Projektötlet
 
-A projekt célja a felasználó utazásainak naplózása. A felhasználó feljegyezheti különféle utazásait. Az alkalmazáson belül lehetőség van az utazások listázására, naptárban/térképen való megtekintésére, utazások felvételére, módosítására törlésre. Az alkalmazást több felhasználó is használhatja egymástól függetlenül. Az alkalmazásban lehetőség van egy utazást publikusként is rögzíteni, ekkor az összes felhasználó láthatja azt.
+A projekt célja a felasználó utazásainak naplózása. A felhasználó feljegyezheti különféle utazásait. Az alkalmazáson belül lehetőség van az utazások listázására, térképen való megtekintésére, utazások felvételére. Az alkalmazást több felhasználó is használhatja egymástól függetlenül.
 
 ### Felhasznált technológiák
 
