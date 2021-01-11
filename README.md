@@ -13,7 +13,7 @@ A projekt célja a felasználó utazásainak naplózása. A felhasználó feljeg
 
 ### Felhasznált technológiák
 
-#### [Backend](https://github.com/MatyiFKBT/travel/wiki/backend)
+#### [Backend](https://github.com/MatyiFKBT/travel/wiki/Backend-dokument%C3%A1ci%C3%B3)
 
 - Node.js
 - Express.js
@@ -22,9 +22,11 @@ A projekt célja a felasználó utazásainak naplózása. A felhasználó feljeg
 - REST api (Frotend - Backend kommunikáció)
 - Jest (tesztelés)
 
-#### [Frontend](https://github.com/MatyiFKBT/travel/wiki/frontend)
+#### [Frontend](https://github.com/MatyiFKBT/travel/wiki/Frontend-dokument%C3%A1ci%C3%B3)
 
 - Angular
+
+#### [Fejlesztői dokumentáció](https://github.com/MatyiFKBT/travel/wiki/Felhaszn%C3%A1l%C3%B3i-dokument%C3%A1ci%C3%B3)
 
 #### Verziókövető
 
